@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="StoreDataSoap" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/StoreDataSoap/StoreDataSoap.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/StoreDataSoap/StoreDataSoap.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/StoreDataSoap/StoreDataSoap.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/StoreSoap.Data.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IStoreDataSoap_GetProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProducts" />
+  </wsdl:message>
+  <wsdl:message name="IStoreDataSoap_GetProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStoreDataSoap_AddProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProduct" />
+  </wsdl:message>
+  <wsdl:message name="IStoreDataSoap_AddProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStoreDataSoap_DeleteProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProduct" />
+  </wsdl:message>
+  <wsdl:message name="IStoreDataSoap_DeleteProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStoreDataSoap_GetOders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOders" />
+  </wsdl:message>
+  <wsdl:message name="IStoreDataSoap_GetOders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStoreDataSoap_AddOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrder" />
+  </wsdl:message>
+  <wsdl:message name="IStoreDataSoap_AddOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStoreDataSoap_DeleteOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrder" />
+  </wsdl:message>
+  <wsdl:message name="IStoreDataSoap_DeleteOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrderResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IStoreDataSoap">
+    <wsdl:operation name="GetProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStoreDataSoap/GetProducts" message="tns:IStoreDataSoap_GetProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStoreDataSoap/GetProductsResponse" message="tns:IStoreDataSoap_GetProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStoreDataSoap/AddProduct" message="tns:IStoreDataSoap_AddProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStoreDataSoap/AddProductResponse" message="tns:IStoreDataSoap_AddProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStoreDataSoap/DeleteProduct" message="tns:IStoreDataSoap_DeleteProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStoreDataSoap/DeleteProductResponse" message="tns:IStoreDataSoap_DeleteProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStoreDataSoap/GetOders" message="tns:IStoreDataSoap_GetOders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStoreDataSoap/GetOdersResponse" message="tns:IStoreDataSoap_GetOders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStoreDataSoap/AddOrder" message="tns:IStoreDataSoap_AddOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStoreDataSoap/AddOrderResponse" message="tns:IStoreDataSoap_AddOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStoreDataSoap/DeleteOrder" message="tns:IStoreDataSoap_DeleteOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStoreDataSoap/DeleteOrderResponse" message="tns:IStoreDataSoap_DeleteOrder_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IStoreDataSoap" type="tns:IStoreDataSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProducts">
+      <soap:operation soapAction="http://tempuri.org/IStoreDataSoap/GetProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProduct">
+      <soap:operation soapAction="http://tempuri.org/IStoreDataSoap/AddProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <soap:operation soapAction="http://tempuri.org/IStoreDataSoap/DeleteProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOders">
+      <soap:operation soapAction="http://tempuri.org/IStoreDataSoap/GetOders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrder">
+      <soap:operation soapAction="http://tempuri.org/IStoreDataSoap/AddOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrder">
+      <soap:operation soapAction="http://tempuri.org/IStoreDataSoap/DeleteOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StoreDataSoap">
+    <wsdl:port name="BasicHttpBinding_IStoreDataSoap" binding="tns:BasicHttpBinding_IStoreDataSoap">
+      <soap:address location="http://localhost/StoreDataSoap/StoreDataSoap.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
