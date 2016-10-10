@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StoreRestBL
 {
-  class BLSoapHelper
+  public class BLSoapHelper
   {
     private readonly StoreDataSoapClient c = new StoreDataSoapClient();
     BLMapper map = new BLMapper();
