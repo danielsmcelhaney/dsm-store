@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLSoapHelper.cs" />
     <Compile Include="Models\BLDaos.cs" />
     <Compile Include="Models\BLMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
