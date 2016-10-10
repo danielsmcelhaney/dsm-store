@@ -1,7 +1,26 @@
-﻿
+﻿@model IEnumerable<StoreClient.Models.ProductModel>
+
 @{
-    ViewBag.Title = "Product";
+    ViewBag.Title = "Index";
 }
 
 <h2>Product Home</h2>
 
+
+<table class="table">
+   
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Discount)
+        </td>
+    </tr>
+}
+
+</table>
