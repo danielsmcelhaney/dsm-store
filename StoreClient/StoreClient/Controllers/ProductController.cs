@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Xml;
@@ -16,7 +17,7 @@ namespace StoreClient.Controllers
     public class ProductController : Controller
     {
         // GET: Product
-        public async System.Threading.Tasks.Task<ActionResult> Index()
+        public async Task<ActionResult> Index()
         {
           string url = "";
           try
@@ -26,15 +27,12 @@ namespace StoreClient.Controllers
             {
               client.BaseAddress = new Uri(url);
               client.DefaultRequestHeaders.Accept.Clear();
-              //client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-              System.Net.Http.HttpResponseMessage response = await client.GetAsync(url);
+              HttpResponseMessage response = await client.GetAsync(url);
                if (response.IsSuccessStatusCode)
                {
                  var p = await response.Content.ReadAsStringAsync();
-                 //convert List of Snippets into objects
-               ProductListModel s = new ProductListModel();
+                 ProductListModel s = new ProductListModel();
                 s.lpm = JsonConvert.DeserializeObject<List<ProductModel>>(p);
-                ViewBag.Results = s.lpm.Count.ToString();
                 return View(s.lpm);
                }
                else
