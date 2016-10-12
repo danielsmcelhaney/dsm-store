@@ -21,10 +21,10 @@ namespace StoreRest.WebApi.Controllers
     }
 
     
-    public HttpResponseMessage Post([FromBody]StringContent p)
+    public HttpResponseMessage Post([FromBody]productDto p)
     {
-      var ps = (productDto) JsonConvert.DeserializeObject(p.ToString());
-      if (rblh.AddProduct(ps))
+     
+      if (rblh.AddProduct(p))
       {
         return Request.CreateResponse(HttpStatusCode.OK);
       }

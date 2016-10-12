@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -59,8 +60,7 @@ namespace StoreClient.Controllers
     public async Task<ActionResult> AddProduct(ProductModel p)
     {
       HttpClient c = new HttpClient();
-      var ps = JsonConvert.SerializeObject(p);
-      StringContent hc = new StringContent(ps);
+      StringContent hc = new StringContent(JsonConvert.SerializeObject(p), Encoding.UTF8, "application/json");
       var r = await c.PostAsync("http://localhost/StoreRest/api/product", hc);
       if(r.IsSuccessStatusCode)
       {
