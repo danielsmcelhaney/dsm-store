@@ -49,5 +49,29 @@ namespace StoreClient.Controllers
         }
         } //end public async Results method
        
+    [HttpGet]
+    public ActionResult AddProduct()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> AddProduct(ProductModel p)
+    {
+      HttpClient c = new HttpClient();
+      var ps = JsonConvert.SerializeObject(p);
+      StringContent hc = new StringContent(ps);
+      var r = await c.PostAsync("http://localhost/StoreRest/api/product", hc);
+      if(r.IsSuccessStatusCode)
+      {
+        return View("TransactionComplete");
+      }
+      else
+      {
+        return View("TransactionFail");
+      }
+      
+    }
+
   }
  }

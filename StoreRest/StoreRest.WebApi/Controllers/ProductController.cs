@@ -1,4 +1,5 @@
-﻿using StoreRest.WebApi.Models;
+﻿using Newtonsoft.Json;
+using StoreRest.WebApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,17 +13,18 @@ namespace StoreRest.WebApi.Controllers
     {
     private readonly StoreWebApiBLHelper rblh = new StoreWebApiBLHelper();
 
-    [HttpGet]
+    
     public HttpResponseMessage Get()
     {
       List<productDto> lpd = rblh.GetProducts();
       return Request.CreateResponse(HttpStatusCode.OK, lpd);
     }
 
-    [HttpPost]
-    public HttpResponseMessage Post(productDto p)
+    
+    public HttpResponseMessage Post([FromBody]StringContent p)
     {
-      if (rblh.AddProduct(p))
+      var ps = (productDto) JsonConvert.DeserializeObject(p.ToString());
+      if (rblh.AddProduct(ps))
       {
         return Request.CreateResponse(HttpStatusCode.OK);
       }
@@ -32,7 +34,7 @@ namespace StoreRest.WebApi.Controllers
       }
     }
 
-    [HttpDelete]
+    
     public HttpResponseMessage Delete(productDto p)
     {
       if (rblh.DeleteProduct(p))
